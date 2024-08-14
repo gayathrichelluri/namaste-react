@@ -1,0 +1,15 @@
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Specific folders to ignore
+node_modules/
+dist/
+build/
+.vscode/
+.idea/
+*.iml
+
+# Ignore environment-specific files
+.env

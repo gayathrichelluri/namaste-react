@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script>
+            
+            //React.createElement -> creates h1 element
+            const heading = React.createElement("h1", {}, "Hello world from React!");
+            //second argument is for attributes
+            //{id: "heading", xyz: "something"}
+
+            //Create a root for our react library, all the react code runs here
+            //Everything we want to render, we will render inside this root
+            //and we get the root from line 9 <div id="root">
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(heading);
+
+        </script>
+    </div>
+</body>
+</html>
