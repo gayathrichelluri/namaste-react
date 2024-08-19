@@ -1,0 +1,18 @@
+# Bundler - Parcel
+- Dev Build
+- Local Server
+- HMR => Hot Module Replacement
+    - File watching algorithm - written in C++
+- Caching - Faster builds
+- Image Optimization
+- Minification
+- Bundling
+- Compressing
+- Consistent Hashing
+- Code Splitting
+- Differential bundling - Support older browsers
+- Diagnostics
+- Error Handling
+- HTTPS
+- Tree Shaking - will remove unused code
+- Different dev and prod bundles
