@@ -10,6 +10,9 @@ const Title = () => {
 // * Component Composition
 const HeadingComponent = () => (
     <div id="container">
+        {/* at the end of the day component is just a normal js function */}
+        {Title()}
+        <Title></Title>
         <Title />
         <h1>Namaste React using functional components!</h1>
     </div>
