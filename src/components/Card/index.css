@@ -1,0 +1,36 @@
+.res-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 300px;
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    font-family: monospace;
+}
+
+.res-card:hover {
+    cursor: pointer;
+}
+
+.res-img {
+    align-self: center;
+    height: 150px;
+    width: 190px;
+}
+
+.res-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.res-name {
+    font-weight: bold;
+}
+
+.res-cuisine {
+    font-size: smaller;
+    padding-bottom: 10px;
+}
