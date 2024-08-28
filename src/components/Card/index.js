@@ -1,7 +1,8 @@
 import React from 'react';
 import './index.css';
 
-const Card = ({ name, imgSrc, cuisine, rating, deliveryETA }) => {
+const Card = ({ resDetails }) => {
+    const { name, imgSrc, cuisine, rating, deliveryETA } = resDetails;
     return (
         <div className='res-card'>
             <img src={imgSrc} className='res-img' alt={`${name} image`} />

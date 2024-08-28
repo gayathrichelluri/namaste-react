@@ -13,11 +13,7 @@ const Body = () => {
                 {restaurants.map((res) => (
                     <Card
                         key={res.id}
-                        name={res.name}
-                        imgSrc={res.imgSrc}
-                        cuisine={res.cuisine}
-                        rating={res.rating}
-                        deliveryETA={res.deliveryETA}
+                        resDetails={res}
                     />
                 ))}
             </div>
