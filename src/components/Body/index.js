@@ -1,30 +1,25 @@
 import React from "react";
 import Card from "../Card";
 import './index.css';
+import { getRestaurants } from "../../api/getRestaurants";
 
 const Body = () => {
+    const restaurants = getRestaurants();
+
     return (
         <div className="body">
             <div className="search-field">Search</div>
             <div className="card-container">
-                <Card
-                    name={"Dosa Hut"}
-                    cuisine={"South Indian Breakfast, Indian"}
-                    rating={"4.5 Stars"}
-                    deliveryETA={"25 mins"}
-                />
-                <Card
-                    name={"Ginger"}
-                    cuisine={"North Indian Breads, Indian"}
-                    rating={"4.3 Stars"}
-                    deliveryETA={"15 mins"}
-                />
-                <Card
-                    name={"Chul Ho"}
-                    cuisine={"Fast Food, Chinese"}
-                    rating={"4.2 Stars"}
-                    deliveryETA={"20 mins"}
-                />
+                {restaurants.map((res) => (
+                    <Card
+                        key={res.id}
+                        name={res.name}
+                        imgSrc={res.imgSrc}
+                        cuisine={res.cuisine}
+                        rating={res.rating}
+                        deliveryETA={res.deliveryETA}
+                    />
+                ))}
             </div>
         </div>
 

@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from '../../resources/images/logo.png'
 import './index.css';
 
-const Card = ({ name, cuisine, rating, deliveryETA }) => {
+const Card = ({ name, imgSrc, cuisine, rating, deliveryETA }) => {
     return (
         <div className='res-card'>
-            <img src={logo} className='res-img' />
+            <img src={imgSrc} className='res-img' alt={`${name} image`} />
             <div className='res-details'>
                 <div className='res-name'>{name}</div>
                 <div className='res-cuisine'>{cuisine}</div>
