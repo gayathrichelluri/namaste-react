@@ -5,77 +5,77 @@ const restaurants = [
         id: 1,
         name: "Dosa Hut",
         cuisine: "South Indian Breakfast, Indian",
-        rating: "4.6 Stars",
+        rating: 4.6,
         deliveryETA: "25 mins"
     },
     {
         id: 2,
         name: "Ginger",
         cuisine: "North Indian Breads, Authentic, Indian",
-        rating: "4.3 Stars",
+        rating: 4.3,
         deliveryETA: "15 mins"
     },
     {
         id: 3,
         name: "Chul Ho",
         cuisine: "Fast Food, Chinese",
-        rating: "4.2 Stars",
+        rating: 4.2,
         deliveryETA: "20 mins"
     },
     {
         id: 4,
         name: "Hyderabad House",
         cuisine: "Spicy, Indian",
-        rating: "4.5 Stars",
+        rating: 4.5,
         deliveryETA: "25 mins"
     },
     {
         id: 5,
         name: "Chatkazz",
         cuisine: "Street Food, Authentic, Indian",
-        rating: "4.3 Stars",
+        rating: 4.3,
         deliveryETA: "20 mins"
     },
     {
         id: 6,
         name: "Mad Down Under",
         cuisine: "Fusion, Indian Sizzler Restaurtant",
-        rating: "4.4 Stars",
+        rating: 4.4,
         deliveryETA: "20 mins"
     },
     {
         id: 7,
         name: "A2B Sweets & Restaurant",
         cuisine: "Vegetarian, Indian",
-        rating: "3.9 Stars",
+        rating: 3.9,
         deliveryETA: "10 mins"
     },
     {
         id: 8,
         name: "Sarvana Bhavan",
         cuisine: "Vegetarian, Indian",
-        rating: "4.0 Stars",
+        rating: 4.0,
         deliveryETA: "15 mins"
     },
     {
         id: 9,
         name: "Not Just Curries",
         cuisine: "Indian",
-        rating: "4.0 Stars",
+        rating: 4.0,
         deliveryETA: "18 mins"
     },
     {
         id: 10,
         name: "Anjappar",
         cuisine: "Indian",
-        rating: "3.8 Stars",
+        rating: 3.8,
         deliveryETA: "30 mins"
     },
     {
         id: 11,
         name: "Flavours of Nepal",
         cuisine: "Nepalese Restaurant",
-        rating: "4.3 Stars",
+        rating: 4.3,
         deliveryETA: "40 mins"
     },
 ];

@@ -2,6 +2,13 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-family: monospace;
+}
+
+.top-container {
+    display: flex;
+    padding-right: 20px;
+    justify-content: space-between;
 }
 
 .card-container {
@@ -9,4 +16,17 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.filter-btn {
+    padding: 5px;
+    border: none;
+    font-family: monospace;
+    font-size: smaller;
+    border-radius: 3px;
+}
+
+.filter-btn:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
