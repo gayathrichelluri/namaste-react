@@ -86,5 +86,7 @@ export const getRestaurants = () => {
         restaurants[idx].imgSrc = img;
     });
 
-    return restaurants;
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(restaurants), 3000);
+    });
 }

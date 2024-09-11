@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../Card";
+import BodySkeleton from "../Shimmer/BodySkeleton";
 import './index.css';
 import { getRestaurants } from "../../api/getRestaurants";
 
 const Body = () => {
-    const [restaurants, setRestaurants] = useState(getRestaurants());
+    const [restaurants, setRestaurants] = useState([]);
+
+    useEffect(() => {
+        const fetchRestaurants = async () => {
+            setRestaurants(await getRestaurants());
+        }
+        fetchRestaurants();
+    }, []);
+
+    if (!restaurants.length) {
+        return <BodySkeleton />
+    };
 
     return (
         <div className="body">
@@ -22,7 +34,7 @@ const Body = () => {
                 </button>
             </div>
             <div className="card-container">
-                {restaurants.map((res) => (
+                {restaurants.length && restaurants.map((res) => (
                     <Card
                         key={res.id}
                         resDetails={res}
