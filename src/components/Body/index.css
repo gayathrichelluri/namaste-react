@@ -21,3 +21,13 @@
 .filter-btn {
     font-size: smaller;
 }
+
+.search-container {
+    display: flex;
+    gap: 12px;
+}
+
+.search-input {
+    font-family: monospace;
+    width: 350px;
+}
