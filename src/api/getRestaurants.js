@@ -92,7 +92,7 @@ export const getRestaurants = () => {
 }
 
 export const getSwiggyRestaurants = async () => {
-    const response = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+    const response = await fetch('https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
     const result = await response.json();
 
     const gridCards = result?.data?.cards?.filter((card) => card?.card?.card?.id === "restaurant_grid_listing")[0].card?.card;
