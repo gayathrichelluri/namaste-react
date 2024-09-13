@@ -90,3 +90,21 @@ export const getRestaurants = () => {
         setTimeout(() => resolve(restaurants), 3000);
     });
 }
+
+export const getSwiggyRestaurants = async () => {
+    const response = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+    const result = await response.json();
+
+    const gridCards = result?.data?.cards?.filter((card) => card?.card?.card?.id === "restaurant_grid_listing")[0].card?.card;
+    console.log(gridCards?.gridElements?.infoWithStyle?.restaurants);
+
+    return gridCards?.gridElements?.infoWithStyle?.restaurants?.map((res) => (
+        {
+            name: res?.info?.name,
+            imgSrc: `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${res?.info?.cloudinaryImageId}`,
+            cuisine: res?.info?.cuisines?.join(", "),
+            rating: res?.info?.avgRating,
+            deliveryETA: res?.info?.sla?.slaString
+        }
+    ));
+}

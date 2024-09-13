@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import Card from "../Card";
 import BodySkeleton from "../Shimmer/BodySkeleton";
 import './index.css';
-import { getRestaurants } from "../../api/getRestaurants";
+import { getSwiggyRestaurants } from "../../api/getRestaurants";
 
 const Body = () => {
     const [restaurants, setRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
 
+
     useEffect(() => {
         const fetchRestaurants = async () => {
-            const data = await getRestaurants();
+            const data = await getSwiggyRestaurants();
             setRestaurants(data);
             setFilteredRestaurants(data);
         }
