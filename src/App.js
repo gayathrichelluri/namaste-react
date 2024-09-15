@@ -11,14 +11,14 @@ import './index.css';
 const App = () => (
     <div id="container">
         <Header />
-        <Body />
+        <RouterProvider router={appRouter} />
     </div>
 );
 
 const appRouter = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: <Body />,
         errorElement: <Error />
     },
     {
@@ -33,4 +33,4 @@ const appRouter = createBrowserRouter([
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />);
+root.render(<App />);
