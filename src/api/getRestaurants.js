@@ -96,10 +96,10 @@ export const getSwiggyRestaurants = async () => {
     const result = await response.json();
 
     const gridCards = result?.data?.cards?.filter((card) => card?.card?.card?.id === "restaurant_grid_listing")[0].card?.card;
-    console.log(gridCards?.gridElements?.infoWithStyle?.restaurants);
 
     return gridCards?.gridElements?.infoWithStyle?.restaurants?.map((res) => (
         {
+            id: res?.info?.id,
             name: res?.info?.name,
             imgSrc: `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${res?.info?.cloudinaryImageId}`,
             cuisine: res?.info?.cuisines?.join(", "),
