@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../resources/images/logo.png';
 import './index.css'
 
@@ -16,9 +17,9 @@ const Header = () => {
         <div className='header'>
             <img className='logo' src={logo} />
             <div className='nav-container'>
-                <div className='nav-item'>Home</div>
-                <div className='nav-item'>About</div>
-                <div className='nav-item'>Cart</div>
+                <Link to='/' className='nav-item'>Home</Link>
+                <Link to='/about' className='nav-item'>About</Link>
+                <Link to='/contact' className='nav-item'>Contact</Link>
                 <button onClick={toggleAuthBtn}>
                     {authBtn}
                 </button>
