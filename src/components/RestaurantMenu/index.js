@@ -4,6 +4,7 @@ import { getRestaurantMenu } from "../../api/getRestaurantMenu";
 import './index.css';
 import Divider from "../Divider";
 import MenuCard from "../MenuCard";
+import ResMenuSkeleton from "../Shimmer/ResMenuSkeleton";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
@@ -17,7 +18,7 @@ const RestaurantMenu = () => {
     }, []);
 
     if (!res) {
-        return <div>loading</div>;
+        return <ResMenuSkeleton>loading</ResMenuSkeleton>;
     }
 
     return (
