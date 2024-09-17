@@ -4,7 +4,7 @@ import Caret from '../Caret';
 import Divider from '../Divider';
 
 const MenuCard = ({ title, cards }) => {
-    const [caret, setCaret] = useState(title === 'Recommended' ? 'down' : 'up');
+    const [caret, setCaret] = useState(title === 'Recommended' ? 'up' : 'down');
 
     const imgSource = (imageId) => {
         return `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${imageId}`
@@ -40,13 +40,13 @@ const MenuCard = ({ title, cards }) => {
 
     return (
         <div className="menu-card">
-            <div className={`menu-card-title`} style={{ marginBottom: caret === 'down' && '10px' }}>
-                <div className={`${caret === 'down' ? 'caret-down' : ''}`}>{`${title} (${cards.length})`}</div>
+            <div className={`menu-card-title`} style={{ marginBottom: caret === 'up' && '10px' }}>
+                <div className={`${caret === 'up' ? 'caret-down' : ''}`}>{`${title} (${cards.length})`}</div>
                 <div className="category-title-accordion" onClick={showCards}>
                     <Caret direction={caret} />
                 </div>
             </div>
-            {caret === 'down' && (
+            {caret === 'up' && (
                 cards.map((card, index) => cardInfo(card.card.info, index))
             )}
         </div>
