@@ -34,14 +34,22 @@ const RestaurantMenu = () => {
                 <Divider />
                 <div className="res-distance">{`🚴 ${res?.info?.feeDetails?.message.replace(/<\/?[^>]+(>|$)/g, "")}`}</div>
             </div>
-            <div className="categories">
-                <MenuCard title={res?.recommended?.title} cards={res?.recommended?.cards} />
-            </div>
+            {res?.recommended?.cards && (
+                <div className="categories">
+                    <MenuCard title={res?.recommended?.title} cards={res?.recommended?.cards} />
+                </div>
+            )}
 
-            {res?.categories?.map((category, index) => (
+            {res?.items?.map((item, index) => (
                 <div className="categories" key={index}>
-                    <div className="category-name">{category?.title}</div>
-                    {category?.categories?.map((item, index) => (
+                    <MenuCard title={item?.title} cards={item?.cards} />
+                </div>
+            ))}
+
+            {res?.nestedItems?.map((item, index) => (
+                <div className="categories" key={index}>
+                    <div className="category-name">{item?.title}</div>
+                    {item?.categories?.map((item, index) => (
                         <MenuCard key={index} title={item?.title} cards={item?.itemCards} />
                     ))}
                 </div>
