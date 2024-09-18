@@ -8,6 +8,10 @@ class About extends React.Component {
         console.log("Parent constructor called");
     }
 
+    componentDidMount() {
+        console.log("Parent componentDidMount called");
+    }
+
     render() {
         console.log("Parent render called");
 

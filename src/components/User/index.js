@@ -6,6 +6,10 @@ class User extends React.Component {
         console.log("Child constructor called");
     }
 
+    componentDidMount() {
+        console.log("Child componentDidMount called");
+    }
+
     render() {
         const { name, location } = this.props;
         console.log("Child render called")
