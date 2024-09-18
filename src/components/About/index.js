@@ -5,22 +5,30 @@ class About extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log("Parent constructor called");
+        this.state = {
+            userInfo: {
+                name: 'default',
+                location: 'default'
+            }
+        }
     }
 
-    componentDidMount() {
-        console.log("Parent componentDidMount called");
+    async componentDidMount() {
+        const response = await fetch("https://api.github.com/users/gayathrichelluri");
+        const data = await response.json();
+
+        this.setState({
+            userInfo: data
+        })
     }
 
     render() {
-        console.log("Parent render called");
+
+        const { id, name, avatar_url } = this.state.userInfo;
 
         return (
             <>
-                <h1>This is About page!</h1>
-                <User id={'First Child'} name={'Gayathri Chelluri'} location={'Hyderabad'} />
-                <User id={'Second Child'} name={'Gouthami Chelluri'} location={'Mumbai'} />
-                <User id={'Third Child'} name={'Lakshmi Chelluri'} location={'Chennai'} />
+                <User id={id} name={name} imgUrl={avatar_url} />
             </>
         );
     }

@@ -1,0 +1,53 @@
+.user-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 50px 20%;
+    border: 1px solid lightgray;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 8px;
+
+    div {
+        font-family: monospace;
+    }
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    >img {
+        height: 150px;
+        width: 150px;
+        border-radius: 8px;
+        border: 1px solid lightgray;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        border-radius: 8px;
+    }
+
+    >div {
+        font-weight: bold;
+        font-size: small;
+        color: rgb(23, 77, 22);
+    }
+}
+
+.user-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 30px;
+
+    :nth-child(1) {
+        color: rgb(119, 48, 48);
+    }
+
+    :nth-child(2) {
+        color: rgb(72, 94, 161);
+        font-size: small;
+    }
+}
