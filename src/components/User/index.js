@@ -3,16 +3,16 @@ import React from "react";
 class User extends React.Component {
     constructor(props) {
         super(props);
-        console.log("Child constructor called");
+        console.log(props.id + " constructor called");
     }
 
     componentDidMount() {
-        console.log("Child componentDidMount called");
+        console.log(this.props.id + " componentDidMount called");
     }
 
     render() {
-        const { name, location } = this.props;
-        console.log("Child render called")
+        const { id, name, location } = this.props;
+        console.log(id + " render called")
 
         return (
             <div>

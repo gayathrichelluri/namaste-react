@@ -18,7 +18,9 @@ class About extends React.Component {
         return (
             <>
                 <h1>This is About page!</h1>
-                <User name={'John Doe'} location={'Hyderabad'} />
+                <User id={'First Child'} name={'Gayathri Chelluri'} location={'Hyderabad'} />
+                <User id={'Second Child'} name={'Gouthami Chelluri'} location={'Mumbai'} />
+                <User id={'Third Child'} name={'Lakshmi Chelluri'} location={'Chennai'} />
             </>
         );
     }
