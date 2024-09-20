@@ -12,8 +12,8 @@ const Card = ({ resDetails }) => {
             <div className='res-details'>
                 <div className='res-name'>{name}</div>
                 <div className='res-cuisine'>{cuisine}</div>
-                <div className='res-rating'>{`${rating} Stars`}</div>
-                <div className='res-eta'>{deliveryETA}</div>
+                <div className='res-rating'>{`⭐ ${rating} Stars`}</div>
+                <div className='res-eta'>{`🚴 ${deliveryETA}`}</div>
             </div>
         </Link>
     )

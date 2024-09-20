@@ -5,17 +5,11 @@ import './index.css';
 import Divider from "../Divider";
 import MenuCard from "../MenuCard";
 import ResMenuSkeleton from "../Shimmer/ResMenuSkeleton";
+import useRestaurantMenu from "../../utils/hooks/useRestaurantMenu";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
-    const [res, setRes] = useState();
-
-    useEffect(() => {
-        (async () => {
-            const data = await getRestaurantMenu(resId);
-            setRes(data);
-        })();
-    }, []);
+    const res = useRestaurantMenu(resId);
 
     if (!res) {
         return <ResMenuSkeleton>loading</ResMenuSkeleton>;
@@ -32,7 +26,7 @@ const RestaurantMenu = () => {
                 <div className="res-area">✦ {res?.info?.areaName}</div>
                 <div className="res-eta">✦ {res?.info?.sla?.slaString.toLowerCase()}</div>
                 <Divider />
-                <div className="res-distance">{`🚴 ${res?.info?.feeDetails?.message.replace(/<\/?[^>]+(>|$)/g, "")}`}</div>
+                <div className="res-distance">{`🚴 ${res?.info?.feeDetails?.message?.replace(/<\/?[^>]+(>|$)/g, "")}`}</div>
             </div>
             {res?.recommended?.cards && (
                 <div className="categories">
