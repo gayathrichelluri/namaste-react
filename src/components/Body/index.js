@@ -10,7 +10,6 @@ const Body = () => {
     const [restaurants, setRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
-    const onlineStatus = useOnlineStatus();
 
     useEffect(() => {
         const fetchRestaurants = async () => {
@@ -37,12 +36,6 @@ const Body = () => {
             e.preventDefault();
             searchRestaurants();
         }
-    }
-
-    if(!onlineStatus) {
-        return <MessageCard>
-            Looks like you're offline. Please check your internet connection and try again.
-        </MessageCard>
     }
 
     if (!restaurants.length) {
