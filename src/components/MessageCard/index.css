@@ -1,0 +1,15 @@
+.message-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 50px 20%;
+    border: 1px solid lightgray;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 8px;
+
+    div {
+        font-family: monospace;
+    }
+}
