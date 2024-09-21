@@ -14,16 +14,16 @@ const Header = () => {
     }
 
     return (
-        <div className='header'>
+        <div className='flex justify-between shadow-md m-1 font-mono text-sm'>
             <Link to='/'>
-                <img className='logo' src={logo} />
+                <img className='w-28' src={logo} />
             </Link>
-            <div className='nav-container'>
+            <div className='flex items-center gap-10 mr-8'>
                 <Link to='/' className='nav-item'>Home</Link>
                 <Link to='/about' className='nav-item'>About</Link>
                 <Link to='/contact' className='nav-item'>Contact</Link>
                 <Link to='/grocery' className='nav-item'>Grocery</Link>
-                <button onClick={toggleAuthBtn}>
+                <button className='border border-solid border-gray-100 rounded-md bg-gray-100' onClick={toggleAuthBtn}>
                     {authBtn}
                 </button>
             </div>

@@ -3,8 +3,6 @@ import Card from "../Card";
 import BodySkeleton from "../Shimmer/BodySkeleton";
 import './index.css';
 import { getSwiggyRestaurants } from "../../api/getRestaurants";
-import useOnlineStatus from "../../utils/hooks/useOnlineStatus";
-import MessageCard from "../MessageCard";
 
 const Body = () => {
     const [restaurants, setRestaurants] = useState([]);
@@ -48,15 +46,15 @@ const Body = () => {
                 <div className="search-container">
                     <input
                         type="text"
-                        className="search-input"
+                        className="search-input border rounded-md px-2"
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                         onKeyDown={onSearchEnter}
                     />
-                    <button className="search-btn" onClick={searchRestaurants}>Search</button>
+                    <button className="search-btn border border-solid border-gray-100 rounded-md bg-gray-100" onClick={searchRestaurants}>Search</button>
                 </div>
                 <button
-                    className="filter-btn"
+                    className="filter-btn border border-solid border-gray-100 rounded-md bg-gray-100"
                     onClick={() => {
                         setRestaurants(
                             restaurants.filter((res) => res.rating > 4.1)

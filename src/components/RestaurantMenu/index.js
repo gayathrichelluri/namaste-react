@@ -17,7 +17,7 @@ const RestaurantMenu = () => {
 
     return (
         <div className='details-container'>
-            <h2 className="res-detail-name">{res?.info?.name}</h2>
+            <h2 className="res-detail-name text-lg text-cyan-800 font-bold pl-1">{res?.info?.name}</h2>
             <div className="res-detail-card">
                 <div>
                     {`⭐ ${res?.info?.avgRating} (${res?.info?.totalRatingsString}) ✦ ${res?.info?.costForTwoMessage}`}
