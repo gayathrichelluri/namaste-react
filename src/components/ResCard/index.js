@@ -3,7 +3,7 @@ import './index.css';
 import { Link } from 'react-router-dom';
 import { getRestaurantMenu } from '../../api/getRestaurantMenu';
 
-const Card = ({ resDetails }) => {
+const ResCard = ({ resDetails }) => {
     const { id, name, imgSrc, cuisine, rating, deliveryETA } = resDetails;
 
     return (
@@ -19,4 +19,4 @@ const Card = ({ resDetails }) => {
     )
 }
 
-export default Card;
+export default ResCard;
