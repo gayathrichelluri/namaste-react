@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ResCard from "../ResCard";
+import ResCard, { withPromotedLabel } from "../ResCard";
 import BodySkeleton from "../Shimmer/BodySkeleton";
 import "./index.css";
 import { getSwiggyRestaurants } from "../../api/getRestaurants";
@@ -8,6 +8,7 @@ const Body = () => {
 	const [restaurants, setRestaurants] = useState([]);
 	const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 	const [searchText, setSearchText] = useState("");
+	const ResCardPromoted = withPromotedLabel(ResCard);
 
 	useEffect(() => {
 		const fetchRestaurants = async () => {
@@ -72,9 +73,13 @@ const Body = () => {
 			</div>
 			<div className='card-container'>
 				{filteredRestaurants.length &&
-					filteredRestaurants.map((res) => (
-						<ResCard key={res.id} resDetails={res} />
-					))}
+					filteredRestaurants.map((res) =>
+						res.promoted ? (
+							<ResCardPromoted key={res.id} resDetails={res} />
+						) : (
+							<ResCard key={res.id} resDetails={res} />
+						),
+					)}
 			</div>
 		</div>
 	);
