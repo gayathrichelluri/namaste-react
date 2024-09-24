@@ -1,24 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
 import Caret from "../Caret";
 import Divider from "../Divider";
 
-const MenuCard = ({ title, cards }) => {
-	const [caret, setCaret] = useState(title === "Recommended" ? "up" : "down");
-
+const MenuCard = ({ title, cards, showTitleCards, handleAccordionToggle }) => {
 	const imgSource = (imageId) => {
 		return `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${imageId}`;
 	};
 
-	const toggleCaret = () => {
-		setCaret(caret === "up" ? "down" : "up");
-	};
-
-	const showCards = () => {
-		toggleCaret();
-	};
-
-	const cardInfo = (card, index) => {
+	const cardInfo = (card) => {
 		return (
 			<React.Fragment key={card?.id}>
 				<div className='menu-card-details flex-wrap'>
@@ -40,12 +30,12 @@ const MenuCard = ({ title, cards }) => {
 							className='menu-card-img'
 							alt={`${card?.imageId} image`}
 						/>
-						<div className='absolute mt-[130px] ml-[13px] px-10 py-1 rounded-md bg-white border-[1px] border-gray-300 text-green-600 font-semibold cursor-pointer hover:bg-gray-200'>
+						<div className='absolute mt-[100px] ml-[12px] px-7 py-1 rounded-md bg-white border-[1px] border-gray-300 text-green-600 font-semibold cursor-pointer hover:bg-gray-200'>
 							Add +
 						</div>
 					</div>
 				</div>
-				{index < cards.length - 1 && <Divider />}
+				<Divider />
 			</React.Fragment>
 		);
 	};
@@ -54,16 +44,19 @@ const MenuCard = ({ title, cards }) => {
 		<div className='menu-card'>
 			<div
 				className={`menu-card-title`}
-				style={{ marginBottom: caret === "up" && "10px" }}
+				style={{ marginBottom: showTitleCards && "10px" }}
 			>
 				<div
-					className={`${caret === "up" ? "caret-down" : ""}`}
+					className={`${showTitleCards ? "title-underline" : ""}`}
 				>{`${title} (${cards.length})`}</div>
-				<div className='category-title-accordion' onClick={showCards}>
-					<Caret direction={caret} />
+				<div
+					className='category-title-accordion'
+					onClick={() => handleAccordionToggle(title)}
+				>
+					<Caret direction={showTitleCards ? "up" : "down"} />
 				</div>
 			</div>
-			{caret === "up" &&
+			{showTitleCards &&
 				cards.map((card, index) => cardInfo(card.card.info, index))}
 		</div>
 	);

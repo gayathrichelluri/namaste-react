@@ -10,12 +10,15 @@ import useRestaurantMenu from "../../utils/hooks/useRestaurantMenu";
 const RestaurantMenu = () => {
 	const { resId } = useParams();
 	const res = useRestaurantMenu(resId);
-
-	console.log(res);
+	const [showTitle, setShowTitle] = useState("Recommended");
 
 	if (!res) {
 		return <ResMenuSkeleton>loading</ResMenuSkeleton>;
 	}
+
+	const handleAccordionToggle = (title) => {
+		setShowTitle(title === showTitle ? "" : title);
+	};
 
 	return (
 		<div className='details-container'>
@@ -48,13 +51,20 @@ const RestaurantMenu = () => {
 					<MenuCard
 						title={res?.recommended?.title}
 						cards={res?.recommended?.cards}
+						showTitleCards={showTitle === res?.recommended?.title}
+						handleAccordionToggle={handleAccordionToggle}
 					/>
 				</div>
 			)}
 
 			{res?.items?.map((item, index) => (
 				<div className='categories' key={index}>
-					<MenuCard title={item?.title} cards={item?.cards} />
+					<MenuCard
+						title={item?.title}
+						cards={item?.cards}
+						showTitleCards={showTitle === item?.title}
+						handleAccordionToggle={handleAccordionToggle}
+					/>
 				</div>
 			))}
 
@@ -62,7 +72,13 @@ const RestaurantMenu = () => {
 				<div className='categories' key={index}>
 					<div className='category-name'>{item?.title}</div>
 					{item?.categories?.map((item, index) => (
-						<MenuCard key={index} title={item?.title} cards={item?.itemCards} />
+						<MenuCard
+							key={index}
+							title={item?.title}
+							cards={item?.itemCards}
+							showTitleCards={showTitle === item?.title}
+							handleAccordionToggle={handleAccordionToggle}
+						/>
 					))}
 				</div>
 			))}
