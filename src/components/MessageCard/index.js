@@ -1,9 +1,7 @@
-import './index.css';
+import "./index.css";
 
-const MessageCard = ({children}) => {
-    return (
-        <div className="message-card">{children}</div>
-    );
-}
+const MessageCard = ({ children }) => {
+	return <div className='message-card'>{children}</div>;
+};
 
 export default MessageCard;

@@ -1,14 +1,19 @@
 import React from "react";
 import { imgSource } from "../../utils/custom";
 import Divider from "../Divider";
-import { useDispatch } from "react-redux";
-import { addItem } from "../../utils/store/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem } from "../../utils/store/cartSlice";
+import "./index.css";
 
 const MenuCardInfo = ({ card }) => {
 	const dispatch = useDispatch();
+	const totalQuantity = useSelector(
+		(state) =>
+			state.cart.items.find((item) => item.id === card.id)?.quantity || 0,
+	);
 
-	const handleAddItem = (item) => {
-		dispatch(addItem(item));
+	const handleItems = (item, isIncrement) => {
+		dispatch(isIncrement ? addItem(item) : removeItem(item));
 	};
 
 	return (
@@ -32,11 +37,27 @@ const MenuCardInfo = ({ card }) => {
 						className='menu-card-img'
 						alt={`${card?.imageId} image`}
 					/>
+
 					<div
-						className='absolute mt-[100px] ml-[12px] px-7 py-1 rounded-md bg-white border-[1px] border-gray-300 text-green-600 font-semibold cursor-pointer hover:bg-gray-200'
-						onClick={() => handleAddItem(card)}
+						className={`absolute mt-[100px] w-20 ml-[19px] px-2 py-1 rounded-md bg-white border-[1px] border-gray-300 font-semibold`}
 					>
-						Add +
+						<div className='flex gap-2 justify-between'>
+							{totalQuantity > 0 && (
+								<div
+									className='px-1 text-red-700 cursor-pointer hover:bg-gray-200 transition duration-300 ease-in-out'
+									onClick={() => handleItems(card, false)}
+								>
+									-
+								</div>
+							)}
+							{totalQuantity > 0 ? `${totalQuantity}` : `Add`}
+							<div
+								className='px-1 text-green-600 cursor-pointer hover:bg-gray-200 transition duration-300 ease-in-out'
+								onClick={() => handleItems(card, true)}
+							>
+								+
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

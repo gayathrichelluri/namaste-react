@@ -34,9 +34,11 @@ const Header = () => {
 				<Link to='/cart' className='nav-item'>
 					<div className='flex'>
 						<CartIcon />
-						<div className='absolute bg-red-700 text-green-50  px-1.5 rounded-xl ml-4 mt-[-8] text-[10px]'>
-							{totalCartItems}
-						</div>
+						{totalCartItems > 0 && (
+							<div className='absolute bg-red-700 text-green-50  px-1.5 rounded-xl ml-4 mt-[-8] text-[10px]'>
+								{totalCartItems}
+							</div>
+						)}
 					</div>
 				</Link>
 				<button
