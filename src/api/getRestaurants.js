@@ -1,4 +1,5 @@
 import { restaurantImages } from "../resources/images/restaurants";
+import { imgSource } from "../utils/custom";
 
 const restaurants = [
 	{
@@ -104,7 +105,7 @@ export const getSwiggyRestaurants = async () => {
 	return gridCards?.gridElements?.infoWithStyle?.restaurants?.map((res) => ({
 		id: res?.info?.id,
 		name: res?.info?.name,
-		imgSrc: `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${res?.info?.cloudinaryImageId}`,
+		imgSrc: imgSource(res?.info?.cloudinaryImageId),
 		cuisine: res?.info?.cuisines?.join(", "),
 		rating: res?.info?.avgRating,
 		deliveryETA: res?.info?.sla?.slaString,

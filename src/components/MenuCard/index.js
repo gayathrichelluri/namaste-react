@@ -1,55 +1,9 @@
 import React from "react";
 import "./index.css";
 import Caret from "../Caret";
-import Divider from "../Divider";
-import { useDispatch } from "react-redux";
-import { addItem } from "../../utils/store/cartSlice";
+import MenuCardInfo from "../MenuCardInfo";
 
 const MenuCard = ({ title, cards, showTitleCards, handleAccordionToggle }) => {
-	const dispatch = useDispatch();
-	const imgSource = (imageId) => {
-		return `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${imageId}`;
-	};
-
-	const handleAddItem = (item) => {
-		dispatch(addItem(item));
-	};
-
-	const cardInfo = (card) => {
-		return (
-			<React.Fragment key={card?.id}>
-				<div className='menu-card-details flex-wrap'>
-					<div className='menu-card-info w-9/12'>
-						<div
-							className={`item-${card?.itemAttribute?.vegClassifier.toLowerCase()}`}
-						></div>
-						<div className='menu-card-name'>{card?.name}</div>
-						<div>{`₹ ${(card?.price || card?.defaultPrice) / 100}`}</div>
-						{card?.ratings?.aggregatedRating?.rating &&
-							card?.ratings?.aggregatedRating?.ratingCountV2 && (
-								<div className='menu-card-rating'>{`★ ${card?.ratings?.aggregatedRating?.rating} (${card?.ratings?.aggregatedRating?.ratingCountV2})`}</div>
-							)}
-						<div className='menu-card-desc'>{`${card?.description ?? ""}`}</div>
-					</div>
-					<div className='flex'>
-						<img
-							src={imgSource(card?.imageId)}
-							className='menu-card-img'
-							alt={`${card?.imageId} image`}
-						/>
-						<div
-							className='absolute mt-[100px] ml-[12px] px-7 py-1 rounded-md bg-white border-[1px] border-gray-300 text-green-600 font-semibold cursor-pointer hover:bg-gray-200'
-							onClick={() => handleAddItem(card)}
-						>
-							Add +
-						</div>
-					</div>
-				</div>
-				<Divider />
-			</React.Fragment>
-		);
-	};
-
 	return (
 		<div className='menu-card'>
 			<div
@@ -67,7 +21,9 @@ const MenuCard = ({ title, cards, showTitleCards, handleAccordionToggle }) => {
 				</div>
 			</div>
 			{showTitleCards &&
-				cards.map((card, index) => cardInfo(card.card.info, index))}
+				cards.map((card, index) => (
+					<MenuCardInfo card={card.card.info} key={card.card.info.id} />
+				))}
 		</div>
 	);
 };
