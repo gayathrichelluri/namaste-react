@@ -2,10 +2,17 @@ import React from "react";
 import "./index.css";
 import Caret from "../Caret";
 import Divider from "../Divider";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/store/cartSlice";
 
 const MenuCard = ({ title, cards, showTitleCards, handleAccordionToggle }) => {
+	const dispatch = useDispatch();
 	const imgSource = (imageId) => {
 		return `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${imageId}`;
+	};
+
+	const handleAddItem = (item) => {
+		dispatch(addItem(item));
 	};
 
 	const cardInfo = (card) => {
@@ -30,7 +37,10 @@ const MenuCard = ({ title, cards, showTitleCards, handleAccordionToggle }) => {
 							className='menu-card-img'
 							alt={`${card?.imageId} image`}
 						/>
-						<div className='absolute mt-[100px] ml-[12px] px-7 py-1 rounded-md bg-white border-[1px] border-gray-300 text-green-600 font-semibold cursor-pointer hover:bg-gray-200'>
+						<div
+							className='absolute mt-[100px] ml-[12px] px-7 py-1 rounded-md bg-white border-[1px] border-gray-300 text-green-600 font-semibold cursor-pointer hover:bg-gray-200'
+							onClick={() => handleAddItem(card)}
+						>
 							Add +
 						</div>
 					</div>

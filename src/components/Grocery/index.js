@@ -3,7 +3,6 @@ import MessageCard from "../MessageCard";
 import UserContext from "../../context/UserContext";
 
 const Grocery = () => {
-	const [text, setText] = useState("");
 	const { user, setUserName } = useContext(UserContext);
 
 	return (

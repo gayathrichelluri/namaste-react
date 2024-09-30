@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import logo from "../../resources/images/logo.png";
 import "./index.css";
 import UserContext from "../../context/UserContext";
+import { useSelector } from "react-redux";
+import CartIcon from "../../utils/icons/CartIcon";
 
 const Header = () => {
 	const [authBtn, setAuthBtn] = useState("Login");
 	const userContext = useContext(UserContext);
+	const totalCartItems = useSelector((state) => state.cart.items.length);
 
 	const toggleAuthBtn = () => {
 		if (authBtn === "Login") setAuthBtn("Logout");
@@ -25,11 +28,16 @@ const Header = () => {
 				<Link to='/about' className='nav-item'>
 					About
 				</Link>
-				<Link to='/contact' className='nav-item'>
-					Contact
-				</Link>
 				<Link to='/grocery' className='nav-item'>
 					Grocery
+				</Link>
+				<Link to='/cart' className='nav-item'>
+					<div className='flex'>
+						<CartIcon />
+						<div className='absolute bg-red-700 text-green-50  px-1.5 rounded-xl ml-4 mt-[-8] text-[10px]'>
+							{totalCartItems}
+						</div>
+					</div>
 				</Link>
 				<button
 					className='border border-solid border-gray-100 rounded-md bg-gray-100'
