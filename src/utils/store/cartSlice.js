@@ -12,6 +12,13 @@ const cartSlice = createSlice({
 	},
 	reducers: {
 		addItem: (state, action) => {
+			/**
+			 * Redux uses Immer behind the scenes
+			 * current(state) is the original state
+			 * state is the new state with the changes
+			 * we either mutate the 'state' directly or
+			 * return a new state which replaces the original state i.e; current(state)
+			 */
 			const existingItem = getExistingItem(state.items, action.payload);
 
 			existingItem
@@ -29,6 +36,7 @@ const cartSlice = createSlice({
 		},
 		clearCart: (state) => {
 			state.items.length = 0;
+			//return {restaurantTitle: '', items: []}; -> You can also return a new state here
 		},
 	},
 });
